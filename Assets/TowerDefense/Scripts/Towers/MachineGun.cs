@@ -6,6 +6,7 @@ using UnityEngine;
 public class MachineGun : Tower
 {
     public Transform orb;
+    public Transform muzzle;
     public float lineDelay = .2f;
     public LineRenderer line;
 
@@ -30,7 +31,7 @@ public class MachineGun : Tower
         // Get orb to look at enemy
         orb.LookAt(e.transform);
         // Create line from orb to enemy
-        line.SetPosition(0, orb.position);
+        line.SetPosition(0, muzzle.position);
         line.SetPosition(1, e.transform.position);
     }
 
@@ -39,7 +40,7 @@ public class MachineGun : Tower
         // Enable the line
         line.enabled = true;
         // Deal damage to enemy
-        e.TakeDamage(damage);
+        e.Damage(damage);
         // 
     }
 
